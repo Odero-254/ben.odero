@@ -10,27 +10,55 @@
     <link rel="stylesheet" href="css/styles.css">
     <style>
             #projects-categories {
-                background: linear-gradient(to bottom right, #2b5876, #4e4376); /* Gradient */
-                color: #ffffff; /* White text for contrast */
-                padding: 50px 0; /* Add padding for spacing */
+            background: linear-gradient(to bottom right, #2b5876, #4e4376); /* Gradient */
+            color: #ffffff; /* White text for contrast */
+            padding: 50px 0; /* Add padding for spacing */
+        }
+        
+        #projects-categories h2 {
+            color: #ffffff; /* Ensure the section title is white */
+            margin-bottom: 30px;
+            font-weight: bold;
+            text-align: center; /* Center align for better presentation */
+        }
+        
+        .card {
+            background-color: #ffffff; /* Keep cards white for contrast */
+            border: none; /* Remove border for a cleaner look */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
+            margin: 15px; /* Add margin for spacing between cards */
+            transition: transform 0.3s ease; /* Smooth transition */
+        }
+        
+        .card:hover {
+            transform: scale(1.05); /* Add a hover effect */
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            #projects-categories {
+                padding: 30px 10px; /* Reduce padding for smaller screens */
             }
-
+        
             #projects-categories h2 {
-                color: #ffffff; /* Ensure the section title is white */
-                margin-bottom: 30px;
-                font-weight: bold;
+                font-size: 1.5rem; /* Adjust font size for smaller screens */
             }
-
+        
             .card {
-                background-color: #ffffff; /* Keep cards white for contrast */
-                border: none; /* Remove border for a cleaner look */
-                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
+                margin: 10px; /* Reduce margin for smaller screens */
             }
-
-            .card:hover {
-                transform: scale(1.05); /* Add a hover effect */
-                transition: transform 0.3s ease;
+        }
+        
+        @media (max-width: 480px) {
+            #projects-categories h2 {
+                font-size: 1.2rem; /* Further reduce font size for very small screens */
             }
+        
+            .card {
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Reduce shadow for smaller screens */
+            }
+        }
+        
 
     </style>
    
