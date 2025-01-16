@@ -33,6 +33,50 @@
         .card:hover {
             transform: scale(1.05); /* Add a hover effect */
         }
+        .section-title {
+    font-size: 2.5rem; /* Default size for larger screens */
+    font-weight: bold; /* Bold for emphasis */
+    color: #333; /* Default dark text color */
+    text-transform: uppercase; /* Uppercase for emphasis */
+    letter-spacing: 1px; /* Add spacing between letters */
+    margin-bottom: 1.5rem; /* Space below the title */
+    position: relative; /* For pseudo-elements */
+    text-align: center; /* Center the title */
+}
+
+.section-title::after {
+    content: ""; /* Decorative line below the title */
+    display: block;
+    width: 60px; /* Default width of the line */
+    height: 4px; /* Height of the line */
+    background-color: #ff8c00; /* Line color */
+    margin: 10px auto 0; /* Center the line and add spacing */
+    border-radius: 2px; /* Rounded edges for the line */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+    .section-title {
+        font-size: 2rem; /* Slightly smaller font size for tablets */
+        margin-bottom: 1rem; /* Adjust spacing for smaller screens */
+    }
+
+    .section-title::after {
+        width: 50px; /* Reduce line width for tablets */
+    }
+}
+
+@media (max-width: 576px) {
+    .section-title {
+        font-size: 1.8rem; /* Smaller font size for mobile devices */
+        margin-bottom: 0.8rem; /* Less spacing on small screens */
+    }
+
+    .section-title::after {
+        width: 40px; /* Smaller line width for mobile devices */
+    }
+}
+
         
         /* Responsive Styles */
         @media (max-width: 768px) {
