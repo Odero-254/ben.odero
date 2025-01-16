@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Bio</title>
+  <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f8f8f8;
+      color: #333;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 20px auto;
+      background-color: #f0f8ff;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 3px solid #990000;
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+    }
+
+    .header .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .header .logo img {
+        width: 70%; /* Adjust percentage as needed */
+        max-width: 90px; /* Ensure it doesn’t exceed 90px on larger screens */
+        height: auto; /* Maintain aspect ratio */
+      }
+
+      .header .text-container {
+    text-align: center;
+    flex-grow: 1;
+    padding: 10px; /* Optional for spacing */
+}
+
+.header .text-container h1 {
+    font-size: 5vw; /* Scales with viewport width */
+    margin: 0;
+    line-height: 1.2; /* Adjusts line height for readability */
+}
+
+.header .text-container p {
+    font-size: 2vw; /* Responsive size for paragraphs */
+    margin: 5px 0 0;
+}
+
+/* Media Queries for Different Screen Sizes */
+@media (min-width: 768px) {
+    .header .text-container h1 {
+        font-size: 2.5rem; /* Larger font size on tablets and above */
+    }
+
+    .header .text-container p {
+        font-size: 1.5rem; /* Adjusted for readability */
+    }
+}
+
+@media (min-width: 1024px) {
+    .header .text-container h1 {
+        font-size: 2.5rem; /* Larger font size for desktops */
+    }
+
+    .header .text-container p {
+        font-size: 1.2rem; /* Adjusted for readability */
+    }
+}
+
+
+
+    .main-content {
+      display: grid;
+      grid-template-columns: 1fr 3fr 1fr; /* Left image, content, and right column */
+      gap: 50px;
+    }
+
+    .image {
+        text-align: center;
+        margin-top: 50px; /* Moves the image down */
+      }
+      
+
+    .image img {
+        width: 100%; /* Makes the image scale to its container */
+        max-width: 300px; /* Prevents the image from becoming too large */
+        height: auto; /* Maintains the aspect ratio */
+      }
+
+      .image p {
+        font-size: 0.8rem; /* Small font size */
+        color: #777; /* Greyed-out color */
+        line-height: 1.5; /* Improves readability with proper spacing */
+        margin: 5px 0; /* Adds some spacing between paragraphs */
+        text-align: justify; /* Justifies the text for a neat alignment */
+      }      
+      
+
+    .text-columns {
+      position: relative;
+    }
+
+    .text-columns h2 {
+      font-size: 1.4rem;
+      margin-top: 40px;
+      color: #990000;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .text-columns p {
+      margin: 0 0 20px;
+    }
+
+    .node-line {
+      position: absolute;
+      left: -15px;
+      top: 0;
+      width: 2px;
+      height: 100%;
+      background: #990000;
+    }
+
+    .node {
+      width: 10px;
+      height: 10px;
+      background: #990000;
+      border-radius: 50%;
+      position: relative;
+    }
+
+    .right-column {
+      background: #f2f2f2;
+      padding: 10px;
+      border: 1px solid #990000;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      font-size: 0.8rem;
+      border-radius: 8px;
+      width: 100%;
+      max-width: 450px;
+      margin-left: -20px;
+    }
+    
+    .right-column h2 {
+      font-size: 1.2rem;
+      color: #990000;
+      margin-bottom: 10px;
+    }
+    
+    .right-column div {
+      margin-bottom: 10px; /* Adds spacing between certifications */
+    }
+    
+    .right-column strong {
+      display: block; /* Ensures the heading is on its own line */
+      font-size: 1rem;
+      color: #333;
+    }
+    
+    .right-column p {
+      margin: 5px 0 0; /* Adds spacing between heading and description */
+      color: #555;
+    }
+    
+    @media (max-width: 768px) {
+      .main-content {
+        grid-template-columns: 1fr;
+      }
+    
+      .right-column {
+        max-width: 100%;
+        margin-left: 0;
+      }
+    
+      .node-line {
+        left: -10px;
+      }
+    }
+    
+    .whatsapp-link {
+        position: fixed;
+        bottom: 20px;
+        left: 20px;
+        width: 60px; /* Slightly larger for better visibility */
+        height: 60px;
+        z-index: 9999; /* Ensures it stays on top of other elements */
+        background-color: #25D366; /* WhatsApp's green color for the background */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Adds a subtle shadow for a floating effect */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%; /* Makes it fully circular */
+        cursor: pointer;
+    }
+    
+    .whatsapp-link img {
+        width: 80%; /* Keeps some padding inside the circle */
+        height: 80%;
+        border-radius: 50%;
+        object-fit: contain; /* Ensures the image scales well without distortion */
+    }
+
+    /* Footer */
+.footer {
+    background-color: #990000; /* Primary color */
+    color: #fff;
+    text-align: center;
+    padding: 2rem 1rem;
+    margin-top: 2rem;
+    border-top: 4px solid #ff8c00; /* Highlight color */
+  }
+  
+  .footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .footer-section {
+    flex: 1;
+    min-width: 200px;
+  }
+  
+  .footer-section h4 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .footer-section p {
+    font-size: 1rem;
+    margin: 0.5rem 0;
+  }
+  
+  .footer-section a {
+    color: #ffcccb; /* Lighter color for links */
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .footer-section a:hover {
+    color: #fff;
+  }
+  
+  .social-icons a {
+    font-size: 1.5rem;
+    margin: 0 0.5rem;
+    color: #ffcccb; /* Lighter color for social icons */
+  }
+  
+  .social-icons a:hover {
+    color: #ff8c00;
+  }
+  
+  .footer-bottom {
+    text-align: center;
+    padding: 10px 20px;
+    border-top: 1px solid #fff;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    font-size: 0.9rem;
+  }
+
+  .quick-links {
+    display: flex;
+    justify-content: center; 
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+  
+  .quick-links a {
+    color: #aaa; 
+    text-decoration: none;
+    font-size: 12px;
+  }
+  
+  .quick-links a:hover {
+    color: #ff8c00; 
+  }
+  
+  .footer-bottom {
+    text-align: center;
+    padding: 10px 20px;
+  }
+  
+  .footer-bottom p {
+    margin-top: 10px;
+    font-size: 12px;
+  }
+  
+  /* Media Query for Mobile View */
+  @media (max-width: 768px) {
+    .quick-links {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .quick-links a {
+      margin-bottom: 0.5px; 
+    }
+  }
+  
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .footer-content {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+/* Back-to-top arrow styling */
+.back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: white;
+    color: black;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+    z-index: 1000; /* Ensure it's above other elements */
+}
+
+.back-to-top:hover {
+    background-color: #990000;
+    color: white; /* Better contrast on hover */
+}
+
+/* Show back-to-top arrow when scrolled down */
+.back-to-top.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Optional: Smooth scaling effect */
+.back-to-top:hover {
+    transform: scale(1.1);
+    transition: transform 0.2s ease-in-out, background-color 0.3s;
+}
+
+   .header .home-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #990000; /* Primary color */
+    text-decoration: none;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    background-color: #fff;
+    border: 2px solid #990000; /* Matches the primary color */
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  .header .home-btn i {
+    font-size: 1.2rem;
+  }
+  
+  .header .home-btn:hover {
+    background-color: #990000; /* Primary color */
+    color: #fff;
+  }
+  
+  .header .home-btn .home-text {
+    display: inline;
+  }
+  
+  @media (max-width: 768px) {
+ 
+  
+    .header .home-btn .home-text {
+      display: none; /* Hide the text in mobile view */
+    }
+  }
+  
+  @media (max-width: 480px) {
+  
+    .header .home-btn i {
+      font-size: 1rem;
+    }
+  }
+
+ /* General styling for the resume button */
+.resume-btn {
+  display: flex; /* Align icon and text horizontally */
+  align-items: center; /* Center icon and text vertically */
+  gap: 0.5rem; /* Space between icon and text */
+  color: #990000; /* Primary color */
+  text-decoration: none; /* Removes underline */
+  font-size: 1rem; /* Base font size */
+  padding: 0.5rem 1rem; /* Button padding */
+  background-color: #fff; /* Button background color */
+  border: 1px solid #990000; /* Border with primary color */
+  border-radius: 5px; /* Rounded corners */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth hover effect */
+  white-space: nowrap; /* Prevents text from wrapping */
+  overflow: hidden; /* Ensures the text doesn't overflow */
+  text-overflow: ellipsis; /* Adds ellipsis if text overflows */
+}
+
+/* Icon styling */
+.resume-btn i {
+  font-size: 1.2rem; /* Icon size */
+}
+
+/* Hover effect */
+.resume-btn:hover {
+  background-color: #990000; /* Change background to primary color */
+  color: #fff; /* Change text and icon color to white */
+}
+
+/* Text styling */
+.resume-btn .resume-text {
+  display: inline; /* Ensure text is visible by default */
+  white-space: nowrap; /* Prevents text wrapping in large screen view */
+}
+
+/* Responsive styling for medium screens (tablets) */
+@media (max-width: 768px) {
+  .resume-btn {
+      font-size: 0.9rem; /* Adjust text size */
+      padding: 0.5rem; /* Reduce padding */
+  }
+
+  .resume-btn .resume-text {
+      display: inline; /* Keeps the text visible */
+  }
+}
+
+/* Responsive styling for small screens (phones) */
+@media (max-width: 480px) {
+  .resume-btn {
+      font-size: 0.85rem; /* Smaller font size */
+      padding: 0.4rem; /* Smaller padding */
+      gap: 0.3rem; /* Reduce space between icon and text */
+  }
+
+  .resume-btn i {
+      font-size: 1rem; /* Smaller icon size */
+  }
+
+  .resume-btn .resume-text {
+      font-size: 0.9rem; /* Slightly smaller text size */
+  }
+}
+
+
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <div class="header">
+      <div class="logo">
+        <img src="img/logo2.png" alt="Logo">
+      </div>
+      <div class="text-container">
+        <h1>BENARD ODERO</h1>
+        <p>A passionate IT technician, end-user support, network specialist, and designer.</p>
+      </div>
+      <a href="index.html" class="home-btn">
+        <i class="fas fa-home"></i><span class="home-text">Home</span>
+      </a>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <!-- Image Section -->
+      <div class="image">
+        <img src="img/benn.png" alt="Your Official Photo">
+        <p>I am an IT professional dedicated to innovation and delivering scalable, 
+          reliable, and efficient tech solutions. With a strong enthusiasm 
+          for Cybersecurity, Networking, IT Technician and general user support.</p>
+          <p>I am passionate about building secure networks, troubleshooting complex systems, 
+            and ensuring seamless connectivity. My focus is on staying ahead of technological advancements and applying them to solve 
+          real-world challenges effectively.</p> <br>
+
+        <a href="Doc/Benard Odero_CV.pdf" class="resume-btn" target="_blank">
+          <i class="fas fa-download"></i>
+          <span class="resume-text">Download Resume</span>
+      </a>
+      
+      
+      </div>
+
+      <!-- Text Columns -->
+      <div class="text-columns">
+        <div class="node-line"></div>
+
+        <h2>
+          <span class="node"></span>
+          <i class="fas fa-graduation-cap"></i> Education
+        </h2>
+        <p>Completed a Diploma in Information Communication Technology from NYS Engineering Institute. 
+          Acquired certifications in Cybersecurity, Networking, and Linux Fundamentals through 
+          platforms like Cisco Networking Academy and Hack The Box</p>
+        <p>Did Kenya Certificate of Secondary School (KCSE) at Bujumba Boys High School in Busia County.</p>
+
+        <h2>
+          <span class="node"></span>
+          <i class="fas fa-briefcase"></i> Professional Experience
+        </h2>
+        <p>Experienced IT Professional with expertise in cybersecurity, network management and Computer Hardware Management. 
+          Successfully took part in the Personal Identification Secure Comparison and Evaluatio System (PISCES) version 9.3.33 system upgrades, 
+          implemented robust security protocols, and supported enterprise-level network operations.</p>
+
+        <h2>
+          <span class="node"></span>
+          <i class="fas fa-award"></i> Achievements
+        </h2>
+        <p>Earned certifications in Ethical Hacking Essentials, CCNA, and AI Fundamentals 
+          with IBM SkillsBuild. Recognized for taking part in the PISCES version 9.3.33 system upgrade.</p>
+
+        <h2>
+          <span class="node"></span>
+          <i class="fas fa-heart"></i> Hobbies and Interests
+        </h2>
+        <p>Passionate about exploring emerging cybersecurity trends, troubleshooting networks, 
+          and experimenting with Linux systems. Outside of IT, I am a <strong>Manchester United</strong> fan ❤️⚽, coding for fun, 
+          and participating in online CTF challenges.</p>
+      </div>
+<!-- Right Column -->
+<div class="right-column">
+  <h2>Certification Corner</h2>
+  <div>
+    <strong>Network Technician</strong>
+    <p>Proficiency in configuring, maintaining, and troubleshooting network systems. Offered by CISCO</p>
+  </div>
+  <div>
+    <strong>Networking Essentials</strong>
+    <p>Foundations of networking, including protocols, devices, and connectivity. Offered by CISCO</p>
+  </div>
+  <div>
+    <strong>Ethical Hacker Essentials</strong>
+    <p>Basics of ethical hacking and cybersecurity practices. Offered by CISCO</p>
+  </div>
+  <div>
+    <strong>Introduction to Cybersecurity</strong>
+    <p>Core cybersecurity concepts and defense mechanisms. Offered by CISCO</p>
+  </div>
+  <div>
+    <strong>Junior Cybersecurity Analyst</strong>
+    <p>Entry-level skills in cybersecurity monitoring and analysis. Offered by CISCO</p>
+  </div>
+  <div>
+    <strong>AI Fundamentals with IBM SkillsBuild</strong>
+    <p>Basic AI concepts and applications using IBM tools. Offered by CISCO</p>
+  </div>
+  <div>
+    <strong>Linux Fundamentals</strong>
+    <p>Foundational Linux skills for system administration and security. Offered by Hack The Box</p>
+  </div>
+</div>
+
+
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-content">
+        <div class="footer-section">
+            <h4>Get in Touch</h4>
+            <p>
+              <i class="fas fa-envelope"></i> 
+              <a href="mailto:benardodero21@gmail.com">benardodero21@gmail.com</a>
+            </p>
+            <p>
+              <i class="fas fa-phone-alt"></i> 
+              <a href="tel:+254728005323">+254 (7) 28005323</a>
+            </p>
+          </div>
+          
+      <div class="footer-section">
+        <h4>Follow Me</h4>
+        <div class="social-icons">
+          <a href="https://github.com/Odero-254" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+          <a href="https://codepen.io/Benard-Odero"><i class="fab fa-codepen" target="_blank" title="Codepen"></i></i></a>
+          <a href="https://x.com/ben_odb?t=Mu5J0SKWFJiMZk7d_OLUmg&s=08"><i class="fab fa-twitter" target="_blank" title="Twitter"></i></i></a>
+          <a href="https://www.instagram.com/ben.odb?utm_source=qr&igsh=MTJzdXVvaWIyYWg2bg=="><i class="fab fa-instagram" target="_blank" title="Instagram"></i></i></a>
+          <a href="https://www.linkedin.com/in/benard-odero-916b5a13b/"><i class="fab fa-linkedin" target="_blank" title="LinkedIn"></i></i></a>
+          <a href="http://t.me/ben_odb"><i class="fab fa-telegram" target="_blank" title="Telegram"></i></i></a>
+        </div>
+      </div>
+      <div class="footer-section">
+        <h4>About</h4>
+        <p>My portfolio showcasing my personal informaton, life and career journey. Explore and get inspired!</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+        <div class="quick-links">
+          <a href="index.html">Home</a>
+          <a href="web-development.html">Web Programming</a>
+          <a href="blankpage.html">Data Science</a>
+          <a href="blankpage.html">IoT and Embedded Systems</a>
+        </div>
+        <p>&copy; <span id="currentYear"></span> | odero.org. All rights reserved.</p>
+      </div>
+
+
+      <!-- WhatsApp Icon -->
+<a href="https://wa.me/254728005323" target="_blank" class="whatsapp-link">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" />
+</a>
+      
+  </footer>
+
+  <script>
+    // Get the current year and set it in the footer
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>

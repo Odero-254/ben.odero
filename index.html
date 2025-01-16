@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Benard Odero</title>
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+            #projects-categories {
+                background: linear-gradient(to bottom right, #2b5876, #4e4376); /* Gradient */
+                color: #ffffff; /* White text for contrast */
+                padding: 50px 0; /* Add padding for spacing */
+            }
+
+            #projects-categories h2 {
+                color: #ffffff; /* Ensure the section title is white */
+                margin-bottom: 30px;
+                font-weight: bold;
+            }
+
+            .card {
+                background-color: #ffffff; /* Keep cards white for contrast */
+                border: none; /* Remove border for a cleaner look */
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
+            }
+
+            .card:hover {
+                transform: scale(1.05); /* Add a hover effect */
+                transition: transform 0.3s ease;
+            }
+
+    </style>
+   
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const preloader = document.getElementById("preloader");
+            const mainContent = document.getElementById("main-content");
+            const percentage = document.querySelector(".percentage");
+            let loadProgress = 0;
+        
+            // Simulate loading progress
+            const interval = setInterval(() => {
+                loadProgress += 1;
+                percentage.textContent = loadProgress + "%";
+        
+                if (loadProgress >= 100) {
+                    clearInterval(interval);
+                    preloader.style.display = "none";
+                    mainContent.style.display = "block";
+                }
+            }, 30);
+        });
+        
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const menuIcon = document.querySelector(".menu-icon");
+            const nav = document.querySelector("ul.nav");
+        
+            menuIcon.addEventListener("click", () => {
+                menuIcon.classList.toggle("open");
+                nav.classList.toggle("open");
+            });
+        
+            // Close the nav when clicking outside or on scroll
+            document.addEventListener("click", (e) => {
+                if (!nav.contains(e.target) && !menuIcon.contains(e.target)) {
+                    menuIcon.classList.remove("open");
+                    nav.classList.remove("open");
+                }
+            });
+        
+            window.addEventListener("scroll", () => {
+                menuIcon.classList.remove("open");
+                nav.classList.remove("open");
+            });
+        });
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const aboutSection = document.querySelector("#about-content");
+            const animateElements = aboutSection.querySelectorAll("[data-animate]");
+            const readMoreBtn = document.querySelector("#read-more-btn");
+        
+            const typeText = (element, text, callback) => {
+                let index = 0;
+                element.textContent = ""; 
+                const interval = setInterval(() => {
+                    element.textContent += text.charAt(index);
+                    element.classList.add("typing");
+                    index++;
+                    if (index === text.length) {
+                        clearInterval(interval);
+                        element.classList.remove("typing");
+                        if (callback) callback();
+                    }
+                }, 50); 
+            };
+        
+            const handleAnimation = (entries, observer) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        observer.unobserve(entry.target); 
+                        let delay = 0;
+                        animateElements.forEach((element) => {
+                            const text = element.textContent; 
+                            element.textContent = ""; 
+                            setTimeout(() => {
+                                typeText(element, text, () => {
+                                    if (element === animateElements[animateElements.length - 1]) {
+                                        // Show button after the last paragraph
+                                        readMoreBtn.classList.remove("hidden");
+                                        readMoreBtn.classList.add("visible");
+                                    }
+                                });
+                            }, delay);
+                            delay += text.length * 50 + 500; 
+                        });
+                    }
+                });
+            };
+        
+            const observer = new IntersectionObserver(handleAnimation, {
+                threshold: 0.5, 
+            });
+        
+            observer.observe(aboutSection);
+        });
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const nameElement = document.getElementById("looping-name");
+            const nameText = "Benard Odero"; 
+            let isTyping = true; 
+            let index = 0; 
+        
+            const typeEraseLoop = () => {
+                if (isTyping) {
+                    // Typing phase
+                    nameElement.textContent = nameText.substring(0, index);
+                    index++;
+                    if (index > nameText.length) {
+                        isTyping = false;
+                        setTimeout(typeEraseLoop, 1500); 
+                        return;
+                    }
+                } else {
+                    // Erasing phase
+                    nameElement.textContent = nameText.substring(0, index);
+                    index--;
+                    if (index < 0) {
+                        isTyping = true;
+                        setTimeout(typeEraseLoop, 1000); 
+                        return;
+                    }
+                }
+                setTimeout(typeEraseLoop, 200); 
+            };
+        
+            // Start the loop
+            typeEraseLoop();
+        });
+    </script>
+</head>
+<body>
+
+    <div id="preloader">
+        <div class="loader-container">
+            <div class="loader"></div>
+            <img src="img/logo2.png" alt="Logo2" class="logo2">
+        </div>
+        <div class="percentage">0%</div>
+    </div>
+
+    <header class="py-3">
+        <nav class="container d-flex justify-content-between align-items-center">
+    <!-- Logo and Name -->
+    <div class="d-flex align-items-center">
+        <a href="profile.html">
+            <img src="img/logo.jpg" alt="Logo" class="logo me-2">
+        </a>
+        <h1>Benard Odero</h1>
+    </div>
+
+    <!-- Hamburger Menu Icon -->
+    <div class="menu-icon">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <!-- Navigation Links -->
+    <ul class="nav">
+        <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+        <li class="nav-item"><a href="#projects-categories" class="nav-link">Projects</a></li>
+        <li class="nav-item"><a href="#skills" class="nav-link">Skills</a></li>
+        <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+    </ul>
+</nav>
+    </header>
+
+<section class="hero">
+    <div class="container">
+        <h1 class="animated-title">
+            <i class="fas fa-laptop-code"></i> Innovative IT Solutions & Creative Designs
+        </h1>        
+        <div class="intro-text">
+            <div class="intro-greeting">Hello World</div>
+            <a>
+                I’m <span class="highlight" id="looping-name"></span>, a passionate developer, designer, and IT expert.
+            </a>            
+            
+        </div>
+        
+        <a href="#projects-categories" class="btn">
+            <i class="fas fa-briefcase"></i> Explore My Work
+        </a>
+        <a href="Doc/Benard Odero_CV.pdf" target="_blank" class="btn">
+            <i class="fas fa-file-pdf"></i> View Resume
+        </a>
+    </div>
+</section>
+
+
+<section id="about" class="py-5">
+    <div class="container">
+        <h2 class="section-title">About Me</h2>
+        <div class="row align-items-center">
+            <div class="col-md-6" id="about-content">
+                <p data-animate>I am a versatile IT professional with expertise in programming, networking, and design. I specialize in creating efficient systems, solving technical challenges, and delivering visually appealing designs.</p>
+                <p data-animate>With proficiency in C, C++, PHP, and MySQL, I have developed and managed efficient systems that meet diverse user needs. My technical skills are complemented by a strong background in computer repair and network configuration, where I excel in diagnosing and resolving hardware and network-related issues.</p>
+                <p data-animate>I am passionate about solving complex technical challenges, supporting users with practical solutions, and delivering high-quality designs. My ability to combine technical expertise with creativity makes me a valuable asset in any IT or design-related role.</p>
+                <a href="profile.html" class="btn"  id="read-more-btn">
+                    Learn More about Me
+                </a>
+            </div>
+            
+            <div class="col-md-6">
+                <img src="img/bb2.png" alt="About Me" class="img-fluid rounded">
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section id="projects-categories" class="py-5 bg-light">
+    <div class="container">
+        <h2 class="section-title">Project Categories</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <a href="web-development.html" class="category-card">
+                    <div class="card">
+                        <img src="img/web-development2.jpg" class="card-img-top" alt="Web Development">
+                        <div class="card-body">
+                            <h5 class="card-title">Web Development</h5>
+                            <p class="card-text">Explore projects in front-end and back-end development.</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-4">
+                <a href="blankpage.html" class="category-card">
+                    <div class="card">
+                        <img src="img/ds-3.jpg" class="card-img-top" alt="Data Science">
+                        <div class="card-body">
+                            <h5 class="card-title">Data Science</h5>
+                            <p class="card-text">Discover data analytics and machine learning projects.</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-4">
+                <a href="blankpage.html" class="category-card">
+                    <div class="card">
+                        <img src="img/iot2.jpg" class="card-img-top" alt="IoT and Embedded Systems">
+                        <div class="card-body">
+                            <h5 class="card-title">IoT Labs</h5>
+                            <p class="card-text">Learn about innovative IoT and embedded systems projects.</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+    
+<section id="skills" class="py-5">
+    <div class="container">
+        <h2 class="section-title text-center mb-4">Skills</h2>
+        <div class="row">
+            <!-- Skill 1 -->
+            <div class="col-md-4 col-12 mb-4">
+                <h5>Programming</h5>
+                <div class="skill-bar">
+                    <div class="skill-bar-fill" data-width="90">
+                        <span class="skill-percentage">90%</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Skill 2 -->
+            <div class="col-md-4 col-12 mb-4">
+                <h5>Networking</h5>
+                <div class="skill-bar">
+                    <div class="skill-bar-fill" data-width="95">
+                        <span class="skill-percentage">95%</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Skill 3 -->
+            <div class="col-md-4 col-12 mb-4">
+                <h5>Design</h5>
+                <div class="skill-bar">
+                    <div class="skill-bar-fill" data-width="85">
+                        <span class="skill-percentage">85%</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Skill 4 -->
+            <div class="col-md-4 col-12 mb-4">
+                <h5>MS Office Suite</h5>
+                <div class="skill-bar">
+                    <div class="skill-bar-fill" data-width="99">
+                        <span class="skill-percentage">99%</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Skill 5 -->
+            <div class="col-md-4 col-12 mb-4">
+                <h5>Computer Repairs</h5>
+                <div class="skill-bar">
+                    <div class="skill-bar-fill" data-width="90">
+                        <span class="skill-percentage">90%</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Skill 6 -->
+            <div class="col-md-4 col-12 mb-4">
+                <h5>Printer Diagnosis</h5>
+                <div class="skill-bar">
+                    <div class="skill-bar-fill" data-width="98">
+                        <span class="skill-percentage">98%</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="contact" class="py-5 bg-light">
+    <div class="container">
+        <h2 class="section-title">Contact Information</h2>
+        <div class="row justify-content-center">
+            <!-- Left Column (Social Media Posts) -->
+            <div class="col-md-6">
+                <div class="social-media-feed">
+                    <h5 class="section-heading">Social Corner - Explore Tech Magic</h5>
+                    <blockquote class="twitter-tweet">
+                        <a 
+                            href="https://twitter.com/InterestingSTEM/status/1877602976509960400?t=Piu1Yeg1rrgJRQDIb2s36Q&s=08" 
+                            title="View this post on X"
+                            aria-label="View X post by ben_odb: 'Your tweet description here'."
+                        >
+                            View this post on X
+                        </a>
+                    </blockquote>
+
+                    <blockquote class="twitter-tweet">
+                        <a 
+                            href="https://twitter.com/GT_Protocol/status/1878009740069879940?t=7rMpwa3T9UkRKYZWCOH5rw&s=08" 
+                            title="View this post on X"
+                            aria-label="View X post by ben_odb: 'Your tweet description here'."
+                        >
+                            View this post on X
+                        </a>
+                    </blockquote>
+
+                    <blockquote class="twitter-tweet">
+                        <a 
+                            href="https://twitter.com/ben_odb/status/1717375622194815133" 
+                            title="View this post on X"
+                            aria-label="View X post by ben_odb: 'Your tweet description here'."
+                        >
+                            View this post on X
+                        </a>
+                    </blockquote>
+
+                    <blockquote class="twitter-tweet">
+                        <a 
+                            href="https://twitter.com/Shawnifee/status/1878086313590538591?t=jguS5qOTsRcFGpyjHVvOqg&s=19" 
+                            title="View this post on X"
+                            aria-label="View X post by ben_odb: 'Your tweet description here'."
+                        >
+                            View this post on X
+                        </a>
+                    </blockquote>
+
+                    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                </div>
+                
+            </div>
+
+            <!-- Right Column (Contact Info) -->
+            <div class="col-md-6">
+                <h4>Contact Information</h4>
+                <p>
+                    <i class="fas fa-map-marker-alt"></i> 
+                    <strong>Physical Address:</strong> Utalii, Nairobi, Kenya
+                </p>
+                <p class="contact-info">
+                    <i class="fas fa-phone-alt contact-icon"></i> 
+                    <strong>Mobile Number:</strong> 
+                    <a href="tel:+254728005323" class="contact-link">+254 (7) 28005323</a>
+                </p>
+                <p class="contact-info">
+                    <i class="fab fa-whatsapp contact-icon"></i> 
+                    <strong>WhatsApp:</strong> 
+                    <a href="https://wa.me/254728005323" target="_blank" class="contact-link">+254 (7) 28005323</a>
+                </p>
+                
+                <p class="contact-info">
+                    <i class="fas fa-envelope"></i> 
+                    <strong>Email:</strong> 
+                    <a href="mailto:benardodero21@gmail.com" class="contact-link">benardodero21@gmail.com</a>
+                </p>
+                
+                <br>
+                <!-- Map -->
+                <div class="mt-3">
+                    <iframe 
+                        class="google-map" 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15955.70398732507!2d36.8425575283452!3d-1.232052064487507!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f17316fa4cc19%3A0x6c2b8c9c9031b66f!2sUtalii%2C%20Nairobi%2C%20Kenya!5e0!3m2!1sen!2sus!4v1694443942345!5m2!1sen!2sus" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        title="Map showing the location of Utalii, Nairobi, Kenya">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- WhatsApp Icon -->
+<a href="https://wa.me/254728005323" target="_blank" class="whatsapp-link">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" />
+</a>
+
+
+    <a href="#" id="back-to-top" title="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+<footer class="footer">
+    <div class="footer-content">
+        <div class="footer-section">
+            <h4>Get in Touch</h4>
+            <p>
+              <i class="fas fa-envelope"></i> 
+              <a href="mailto:benardodero21@gmail.com">benardodero21@gmail.com</a>
+            </p>
+            <p>
+              <i class="fas fa-phone-alt"></i> 
+              <a href="tel:+254728005323">+254 (7) 28005323</a>
+            </p>
+          </div>
+          
+      <div class="footer-section">
+        <h4>Follow Me</h4>
+        <div class="social-icons">
+          <a href="https://github.com/Odero-254" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+          <a href="https://codepen.io/Benard-Odero"><i class="fab fa-codepen" target="_blank" title="Codepen"></i></i></a>
+          <a href="https://x.com/ben_odb?t=Mu5J0SKWFJiMZk7d_OLUmg&s=08"><i class="fab fa-twitter" target="_blank" title="Twitter"></i></i></a>
+          <a href="https://www.instagram.com/ben.odb?utm_source=qr&igsh=MTJzdXVvaWIyYWg2bg=="><i class="fab fa-instagram" target="_blank" title="Instagram"></i></i></a>
+          <a href="https://www.linkedin.com/in/benard-odero-916b5a13b/"><i class="fab fa-linkedin" target="_blank" title="LinkedIn"></i></i></a>
+          <a href="http://t.me/ben_odb"><i class="fab fa-telegram" target="_blank" title="Telegram"></i></i></a>
+        </div>
+      </div>
+      <div class="footer-section">
+        <h4>About</h4>
+        <p>My portfolio showcasing who I am and projects, innovations and activities I have engaged in. Explore and get inspired!</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+        <div class="quick-links">
+          <a href="profile.html">My Profile</a>
+          <a href="web-development.html">Web Development</a>
+          <a href="blankpage.html">Data Science</a>
+          <a href="blankpage.html">IoT and Embedded Systems</a>
+        </div>
+        <p>&copy; <span id="currentYear"></span> | odero.org. All rights reserved.</p>
+      </div>
+      
+  </footer>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    // Back-to-top arrow functionality
+    const backToTop = document.getElementById('back-to-top');
+
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 200) { // Show arrow after scrolling 200px
+            backToTop.classList.add('show');
+        } else {
+            backToTop.classList.remove('show');
+        }
+    });
+
+    backToTop.addEventListener('click', (e) => {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+        // Automatically update the year
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const toggleButtons = document.querySelectorAll(".toggle-description");
+        
+            toggleButtons.forEach(button => {
+                button.addEventListener("click", function () {
+                    const cardBody = this.parentElement;
+                    const shortDescription = cardBody.querySelector(".short-description");
+                    const fullDescription = cardBody.querySelector(".full-description");
+        
+                    if (fullDescription.style.display === "none") {
+                        fullDescription.style.display = "block";
+                        shortDescription.style.display = "none";
+                        this.textContent = "Less";
+                    } else {
+                        fullDescription.style.display = "none";
+                        shortDescription.style.display = "block";
+                        this.textContent = "More";
+                    }
+                });
+            });
+        });
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const skillBars = document.querySelectorAll(".skill-bar-fill");
+        
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const bar = entry.target;
+                        const width = bar.getAttribute("data-width");
+                        bar.style.width = `${width}%`;
+                        observer.unobserve(bar); // Stop observing once the animation is triggered
+                    }
+                });
+            }, { threshold: 0.5 }); // Trigger when 50% of the element is visible
+        
+            skillBars.forEach(bar => observer.observe(bar));
+        });
+        
+        document.addEventListener("DOMContentLoaded", function () {
+            const buttons = document.querySelectorAll(".btn");
+            buttons.forEach(button => {
+                button.addEventListener("click", () => {
+                    console.log("Button clicked!");
+                });
+            });
+        });
+        
+        
+</script>
+
+</body>
+</html>

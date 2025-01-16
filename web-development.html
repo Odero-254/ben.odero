@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Web Projects</title>
+  <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+  <link
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+  rel="stylesheet">
+  <link rel="stylesheet" href="styles-webpage.css">
+</head>
+<body>
+    <header class="header">
+        <img src="img/logo2.png" alt="Logo" class="logo" />
+        <div class="header-content">
+          <h1><i class="fas fa-laptop-code"></i> My Web Programming Projects</h1>
+          <p><i class="fas fa-search"></i> Explore my portfolio of web projects!</p>
+        </div>
+        <a href="index.html" class="home-btn">
+          <i class="fas fa-home"></i><span class="home-text">Home</span>
+        </a>
+      </header>
+  <main class="projects-container">
+    <!-- Example of a single project -->
+    <div class="project-card">
+        <img src="img/e-file.jpg" alt="Project Image" class="project-image">
+        <h2 class="project-title"><i class="fas fa-project-diagram"></i> e-Filling System</h2>
+        <p class="project-description short">
+            This project is a digital solution designed to streamline document management.
+            It replaces traditional paper-based filing systems with an organized, secure, 
+            and efficient electronic filing system. Features include categorized storage, 
+            easy retrieval, user access control, and a modern interface to enhance productivity
+            and reduce physical storage needs.
+        </p>
+
+        <div class="project-buttons">
+          <button class="btn read-more" onclick="toggleDescription(this)">
+            <i class="fas fa-info-circle"></i> More
+          </button>
+          <button class="btn view-live" onclick="showPopup()">
+            <i class="fas fa-globe"></i> Online
+          </button>
+          <a href="https://github.com/Odero-254/fms" class="btn view-code" target="_blank">
+            <i class="fab fa-github"></i> Code
+          </a>
+        </div>
+      </div>
+      
+      <div class="project-card">
+        <img src="img/job.png" alt="Project Image" class="project-image">
+        <h2 class="project-title"><i class="fas fa-project-diagram"></i> Idara Job Portal</h2>
+        <p class="project-description short">
+            This project is a web-based platform that simplifies the job application process.
+            It allows job seekers to create profiles, upload resumes, and apply for jobs online. 
+            Employers can post job listings, review applications, and communicate with candidates. 
+            The system emphasizes user-friendliness, accessibility, 
+            and professionalism to support career growth and recruitment efficiency.
+        </p>
+        <div class="project-buttons">
+          <button class="btn read-more" onclick="toggleDescription(this)">
+            <i class="fas fa-info-circle"></i> More
+          </button>
+          <button class="btn view-live" onclick="showPopup()">
+            <i class="fas fa-globe"></i> Online
+          </button>
+          <a href="https://github.com/Odero-254/IdaraJobPortal" class="btn view-code" target="_blank">
+            <i class="fab fa-github"></i> Code
+          </a>
+        </div>
+      </div>
+      
+      <div class="project-card">
+        <img src="img/lesa.png" alt="Project Image" class="project-image">
+        <h2 class="project-title"><i class="fas fa-project-diagram"></i> NYSEI-LeSA System</h2>
+        <p class="project-description short">
+            This is a comprehensive platform designed to manage lesson allocations efficiently 
+            within an educational institution. It automates the assignment of lessons to lecturers 
+            based on their qualifications, availability, and departmental requirements, 
+            enhancing coordination, reducing administrative overhead, and supporting seamless 
+            communication between administrators, lecturers, and students.
+        </p>
+        <div class="project-buttons">
+          <button class="btn read-more" onclick="toggleDescription(this)">
+            <i class="fas fa-info-circle"></i> More
+          </button>
+          <button class="btn view-live" onclick="showPopup()">
+            <i class="fas fa-globe"></i> Online
+          </button>
+          <a href="https://github.com/Odero-254/LeSA-System" class="btn view-code" target="_blank">
+            <i class="fab fa-github"></i> Code
+          </a>
+        </div>
+      </div>
+      
+      <div class="project-card">
+        <img src="img/malware.jpg" alt="Project Image" class="project-image">
+        <h2 class="project-title"><i class="fas fa-project-diagram"></i>Malware Scanner and Remover Tool</h2>
+        </h2>
+        <p class="project-description short">
+          The Malware Scanner and Remover Tool is a Python-based utility designed to scan
+          a computer for malicious files and remove them securely. It leverages a database 
+          of known malware signatures, including integration with the VirusTotal API for 
+          real-time updates, ensuring comprehensive protection against threats.
+        </p>
+
+        <div class="project-buttons">
+          <button class="btn read-more" onclick="toggleDescription(this)">
+            <i class="fas fa-info-circle"></i> More
+          </button>
+          <button class="btn view-live" onclick="showPopup()">
+            <i class="fas fa-globe"></i> Online
+          </button>
+          <a href="https://github.com/Odero-254/comprehensive-malware-scanner-and-remover-tool" class="btn view-code" target="_blank">
+            <i class="fab fa-github"></i> Code
+          </a>
+        </div>
+      </div>
+      
+      <div class="project-card">
+        <img src="img/ids2.jpg" alt="Project Image" class="project-image">
+        <h2 class="project-title"><i class="fas fa-project-diagram"></i> Intrusion Detection System -IDS</h2>
+        <p class="project-description short">
+          An Intrusion Detection System (IDS) is a network 
+          security solution designed to monitor and analyze network or 
+          system activities for potential security threats or policy violations. 
+          It functions as a protective layer that identifies malicious activity, 
+          such as unauthorized access, suspicious behavior, or attacks, and 
+          generates alerts to inform administrators or automated systems.
+        </p>
+        <div class="project-buttons">
+          <button class="btn read-more" onclick="toggleDescription(this)">
+            <i class="fas fa-info-circle"></i> More
+          </button>
+          <button class="btn view-live" onclick="showPopup()">
+            <i class="fas fa-globe"></i> Online
+          </button>
+          <a href="https://github.com/Odero-254/Intrusion-Detection-System-IDS-" class="btn view-code" target="_blank">
+            <i class="fab fa-github"></i> Code
+          </a>
+        </div>
+      </div>
+      
+      <div class="project-card">
+        <img src="img/idm.png" alt="Project Image" class="project-image">
+        <h2 class="project-title"><i class="fas fa-project-diagram"></i> Internet Video Downloader Tool</h2>
+        <p class="project-description short">
+          A comprehensive internet video downloader tool built with Python 
+          that allows users to download videos from various websites by extracting 
+          URLs and providing options to save in multiple formats and resolutions. 
+          It supports popular video platforms, offering an easy-to-use 
+          interface for seamless video downloading.
+        </p>
+        <div class="project-buttons">
+          <button class="btn read-more" onclick="toggleDescription(this)">
+            <i class="fas fa-info-circle"></i> More
+          </button>
+          <button class="btn view-live" onclick="showPopup()">
+            <i class="fas fa-globe"></i> Online
+          </button>
+          <a href="https://github.com/Odero-254/Video-Downloader-Tool" class="btn view-code" target="_blank">
+            <i class="fab fa-github"></i> Code
+          </a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <img src="img/vdtool.jpg" alt="Project Image" class="project-image">
+        <h2 class="project-title"><i class="fas fa-project-diagram"></i> Vehicle Diagnostic Tool</h2>
+        <p class="project-description short">
+          A Vehicle Diagnostic Tool is an advanced electronic device or 
+          software solution designed to identify, analyze, and report issues 
+          in a vehicle's mechanical and electronic systems. It connects to a 
+          vehicle's onboard diagnostic (OBD) system, providing real-time insights 
+          into its performance, faults, and maintenance needs.
+        </p>
+
+        <div class="project-buttons">
+          <button class="btn read-more" onclick="toggleDescription(this)">
+            <i class="fas fa-info-circle"></i> More
+          </button>
+          <button class="btn view-live" onclick="showPopup()">
+            <i class="fas fa-globe"></i> Online
+          </button>
+          <a href="https://github.com/Odero-254/vehicle-Diagnostic-Tool" class="btn view-code" target="_blank">
+            <i class="fab fa-github"></i> Code
+          </a>
+        </div>
+      </div>
+      
+      <div class="project-card">
+        <img src="img/ddns.jpg" alt="Project Image" class="project-image">
+        <h2 class="project-title"><i class="fas fa-project-diagram"></i> Dynamic DNS Updater</h2>
+        <p class="project-description short">
+          A Dynamic DNS (DDNS) Updater is a network automation tool designed 
+          to maintain the synchronization between dynamic IP addresses and domain names. 
+          This tool ensures that users and systems can consistently access resources 
+          using a domain name, even when the underlying IP address changes frequently.
+        </p>
+        <div class="project-buttons">
+          <button class="btn read-more" onclick="toggleDescription(this)">
+            <i class="fas fa-info-circle"></i> More
+          </button>
+          <button class="btn view-live" onclick="showPopup()">
+            <i class="fas fa-globe"></i> Online
+          </button>
+          <a href="https://github.com/Odero-254/Network-Automation-Tool---Dynamic-DNS-updater" class="btn view-code" target="_blank">
+            <i class="fab fa-github"></i> Code
+          </a>
+        </div>
+      </div>
+      
+      <div class="project-card">
+        <img src="img/ptest.png" alt="Project Image" class="project-image">
+        <h2 class="project-title"><i class="fas fa-project-diagram"></i>Penetration Testing Tool</h2>
+        <p class="project-description short">
+          A Penetration Testing (Pentest) Tool is a specialized application developed to identify, 
+          exploit, and report vulnerabilities in networks, systems, or applications. Python is 
+          widely favored for penetration testing due to its versatility, 
+          extensive libraries, and ease of use.
+        </p>
+        <div class="project-buttons">
+          <button class="btn read-more" onclick="toggleDescription(this)">
+            <i class="fas fa-info-circle"></i> More
+          </button>
+          <button class="btn view-live" onclick="showPopup()">
+            <i class="fas fa-globe"></i> Online
+          </button>
+          <a href="https://github.com/Odero-254/Pentest-Tool" class="btn view-code" target="_blank">
+            <i class="fab fa-github"></i> Code
+          </a>
+        </div>
+      </div>
+  </main>
+
+  <!-- WhatsApp Icon -->
+<a href="https://wa.me/254728005323" target="_blank" class="whatsapp-link">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" />
+</a>
+
+
+  
+
+<footer class="footer">
+    <div class="footer-content">
+        <div class="footer-section">
+            <h4>Get in Touch</h4>
+            <p>
+              <i class="fas fa-envelope"></i> 
+              <a href="mailto:benardodero21@gmail.com">benardodero21@gmail.com</a>
+            </p>
+            <p>
+              <i class="fas fa-phone-alt"></i> 
+              <a href="tel:+254728005323">+254 (7) 28005323</a>
+            </p>
+          </div>
+          
+      <div class="footer-section">
+        <h4>Follow Me</h4>
+        <div class="social-icons">
+          <a href="https://github.com/Odero-254" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+          <a href="https://codepen.io/Benard-Odero"><i class="fab fa-codepen" target="_blank" title="Codepen"></i></i></a>
+          <a href="https://x.com/ben_odb?t=Mu5J0SKWFJiMZk7d_OLUmg&s=08"><i class="fab fa-twitter" target="_blank" title="Twitter"></i></i></a>
+          <a href="https://www.instagram.com/ben.odb?utm_source=qr&igsh=MTJzdXVvaWIyYWg2bg=="><i class="fab fa-instagram" target="_blank" title="Instagram"></i></i></a>
+          <a href="https://www.linkedin.com/in/benard-odero-916b5a13b/"><i class="fab fa-linkedin" target="_blank" title="LinkedIn"></i></i></a>
+          <a href="http://t.me/ben_odb"><i class="fab fa-telegram" target="_blank" title="Telegram"></i></i></a>
+        </div>
+      </div>
+
+      <div class="footer-section">
+        <h4>About</h4>
+        <p>My portfolio showcasing web programming projects and innovations. Explore and get inspired!</p>
+      </div>
+    </div>
+
+      <div class="footer-bottom">
+        <div class="quick-links">
+          <a href="index.html">Home</a>
+          <a href="profile.html">My Profile</a>
+          <a href="blankpage.html">Data Science</a>
+          <a href="blankpage.html">IoT and Embedded Systems</a>
+        </div>
+        <p>&copy; <span id="currentYear"></span> | odero.org. All rights reserved.</p>
+      </div>
+    
+
+      <a href="#" class="back-to-top" id="backToTop" title="Back to top">
+        <i class="fas fa-arrow-up"></i>
+      </a>
+      
+  </footer>
+  
+
+  <div id="popup" class="popup hidden">
+    <div class="popup-content">
+      <span class="close-popup" onclick="closePopup()">&times;</span>
+      <p>
+        <i class="fas fa-tools"></i> I am still working on that. Visit my GitHub repository to view the source code:
+      </p> <br><br>
+      <a href="https://github.com/Odero-254?tab=repositories" target="_blank" class="popup-link">
+        <i class="fab fa-github"></i> Visit GitHub
+      </a>
+    </div>
+  </div>
+  
+
+  <script src="scripts-webpage.js"></script>
+</body>
+</html>
