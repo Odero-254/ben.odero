@@ -584,9 +584,7 @@
         e.preventDefault();
         window.scrollTo({ top: 0, behavior: 'smooth' });
     });
-        // Automatically update the year
-        document.getElementById('current-year').textContent = new Date().getFullYear();
-
+       
         document.addEventListener("DOMContentLoaded", function () {
             const toggleButtons = document.querySelectorAll(".toggle-description");
         
@@ -635,8 +633,9 @@
             });
         });
     // Get the current year and set it in the footer
-   document.getElementById("currentYear").textContent = new Date().getFullYear();
-     
+   document.addEventListener("DOMContentLoaded", function () {
+    document.getElementById("currentYear").textContent = new Date().getFullYear();
+});     
 </script>
 
 </body>
